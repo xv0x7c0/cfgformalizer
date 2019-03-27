@@ -1,0 +1,85 @@
+!! IOS XR Configuration 6.1.2
+!! Last configuration change at Sun Mar  3 16:44:01 2019 by Cisco
+!
+hostname XR1
+logging console notifications
+domain lookup disable
+interface Loopback0
+ ipv4 address 11.11.11.11 255.255.255.255
+!
+interface MgmtEth0/0/CPU0/0
+ shutdown
+!
+interface GigabitEthernet0/0/0/0
+ shutdown
+!
+interface GigabitEthernet0/0/0/1
+ description XR2:Gi0/0/0/1
+ ipv4 address 10.11.12.11 255.255.255.0
+!
+interface GigabitEthernet0/0/0/2
+ description R1:Gi2
+ ipv4 address 10.1.11.11 255.255.255.0
+!
+interface GigabitEthernet0/0/0/3
+ description XR3:Gi0/0/0/3
+ ipv4 address 10.11.13.11 255.255.255.0
+!
+interface GigabitEthernet0/0/0/4
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ shutdown
+!
+interface GigabitEthernet0/0/0/6
+ shutdown
+!
+interface GigabitEthernet0/0/0/7
+ shutdown
+!
+interface GigabitEthernet0/0/0/8
+ shutdown
+!
+router isis CORE
+ is-type level-2-only
+ net 49.0001.0000.0000.0011.00
+ log adjacency changes
+ address-family ipv4 unicast
+  metric-style wide
+  mpls ldp auto-config
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/2
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/3
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+!
+mpls ldp
+ mldp
+  address-family ipv4
+  !
+ !
+ address-family ipv4
+ !
+!
+multicast-routing
+ address-family ipv4
+  interface all enable
+ !
+!
+end
