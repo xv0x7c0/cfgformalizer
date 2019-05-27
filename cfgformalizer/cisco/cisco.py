@@ -1,6 +1,7 @@
+import re
+
 from cfgformalizer.cisco.statement import Statement
 from cfgformalizer.stanza import Stanza
-import re
 
 
 def depth(str):
