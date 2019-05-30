@@ -53,6 +53,10 @@ class Stanza:
         ]
 
     @clone
+    def sort(self):
+        self.statements = sorted(self.statements)
+
+    @clone
     def without_comments(self):
         self.statements = [
             statement for statement in self.statements if not statement.is_comment()

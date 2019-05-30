@@ -5,3 +5,6 @@ class Statement:
         self.context = context
         self.depth = depth
         self.string = string
+
+    def __lt__(self, other):
+        return self.formal() < other.formal()
