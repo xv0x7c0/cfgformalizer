@@ -21,6 +21,9 @@ class Stanza:
     def __contains__(self, statement):
         return statement in self.statements
 
+    def __iter__(self):
+        return iter(self.statements)
+
     def append(self, statement):
         self.statements.append(statement)
 
