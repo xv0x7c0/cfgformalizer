@@ -12,6 +12,12 @@ class Stanza:
         s = [str(statement) for statement in self.statements]
         return "\n".join(s)
 
+    def __eq__(self, other):
+        return self.hash() == other.hash()
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
     def append(self, statement):
         self.statements.append(statement)
 
