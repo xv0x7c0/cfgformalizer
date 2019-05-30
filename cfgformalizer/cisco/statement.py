@@ -20,7 +20,7 @@ class Statement(Statement):
         s.append(self.depth * delimiter + self.string)
         return "".join(s)
 
-    def formal(self, linenum=False, seqnum=False, delimiter="|"):
+    def formal(self, linenum=False, seqnum=False, delimiter=" "):
         s = []
         if linenum:
             s.append("%6s" % self.linenum)
