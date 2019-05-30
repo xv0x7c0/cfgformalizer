@@ -50,3 +50,10 @@ class Stanza:
             for statement in self.statements
         ]
         return "\n".join(s)
+
+    def hash(self, algorithm=None):
+        a = algorithm or "sha256"
+        if a not in list(hashlib.algorithms_available):
+            raise Exception("algorithm {} is not supported".format(a))
+        h = getattr(hashlib, a)
+        return h(self.formal().encode("utf-8")).hexdigest()
