@@ -18,6 +18,9 @@ class Stanza:
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def __contains__(self, statement):
+        return statement in self.statements
+
     def append(self, statement):
         self.statements.append(statement)
 
