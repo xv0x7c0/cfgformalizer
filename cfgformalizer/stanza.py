@@ -24,6 +24,9 @@ class Stanza:
     def append(self, statement):
         self.statements.append(statement)
 
+    def contexts(self):
+        return [statement.context for statement in self.statements]
+
     @clone
     def like(self, regexp):
         self.statements = [
