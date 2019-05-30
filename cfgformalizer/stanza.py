@@ -24,6 +24,12 @@ class Stanza:
     def __iter__(self):
         return iter(self.statements)
 
+    def __len__(self):
+        return len(self.statements)
+
+    def __getitem__(self, index):
+        return self.statements[index]
+
     def append(self, statement):
         self.statements.append(statement)
 
