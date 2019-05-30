@@ -24,6 +24,14 @@ class Stanza:
         ]
 
     @clone
+    def unlike(self, regexp):
+        self.statements = [
+            statement
+            for statement in self.statements
+            if not re.search(regexp, statement.formal())
+        ]
+
+    @clone
     def without_comments(self):
         self.statements = [
             statement for statement in self.statements if not statement.is_comment()
