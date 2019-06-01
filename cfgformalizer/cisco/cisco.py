@@ -54,7 +54,7 @@ class Cisco:
 
             # end-policy, end-set, end-group
             if re.match(r"^end\-", line):
-                statement = Statement(linenum, seqnum, context.copy(), line_level, line)
+                statement = Statement(linenum, seqnum, context.copy(), line_depth, line)
                 stanza.append(statement)
                 del context[:]
                 seqnum = 0
