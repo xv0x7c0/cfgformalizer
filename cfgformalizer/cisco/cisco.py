@@ -10,7 +10,7 @@ def depth(str):
 
 class Cisco:
     @classmethod
-    def parse(self, io):
+    def parse(self, string):
         stanza = []
         prev_line = ""
         prev_line_depth = 0
@@ -23,7 +23,7 @@ class Cisco:
 
         banner_regexp = re.compile(r"(?:(?:banner(?:\smotd)?|fail-message)\s(\S))")
 
-        for line in io.readlines():
+        for line in string.splitlines():
             line_depth = depth(line)
             line = line.rstrip().lstrip()
 
