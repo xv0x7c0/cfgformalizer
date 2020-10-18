@@ -1,0 +1,28 @@
+router isis CORE
+ is-type level-2-only
+ net 49.0001.0000.0000.0011.00
+ log adjacency changes
+ address-family ipv4 unicast
+  metric-style wide
+  mpls ldp auto-config
+ !
+ interface Loopback0
+  passive
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/2
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/3
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
