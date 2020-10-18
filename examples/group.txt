@@ -1,0 +1,10 @@
+group TEST-GP
+ interface 'TenGigE.*'
+  ethernet oam
+   hello-interval 1s
+   action
+    wiring-conflict error-disable-interface
+   !
+  !
+ !
+end-group

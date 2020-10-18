@@ -2,6 +2,10 @@
 !! Last configuration change at Sun Mar  3 16:44:01 2019 by Cisco
 !
 hostname XR1
+banner motd ^************
+* netfu.io *
+************
+^
 logging console notifications
 domain lookup disable
 interface Loopback0

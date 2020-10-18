@@ -1,0 +1,19 @@
+class-map match-any TEST-CM-1
+ match precedence 2 3
+ match cos 2 3
+ end-class-map
+!
+class-map match-any TEST-CM-2
+ match precedence 4 6 7
+ match cos 4 6 7
+ end-class-map
+!
+policy-map TEST-PM-1
+ class TEST-CM-1
+  priority level 1
+ !
+ class TEST-CM-2
+  priority level 2
+ !
+ end-policy-map
+!
