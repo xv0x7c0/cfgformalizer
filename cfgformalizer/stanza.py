@@ -41,7 +41,7 @@ class Stanza:
         self.statements = [
             statement
             for statement in self.statements
-            if re.search(regexp, statement.formal())
+            if regexp.search(statement.formal())
         ]
 
     @clone
@@ -49,7 +49,7 @@ class Stanza:
         self.statements = [
             statement
             for statement in self.statements
-            if not re.search(regexp, statement.formal())
+            if not regexp.search(statement.formal())
         ]
 
     @clone
